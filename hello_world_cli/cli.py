@@ -4,6 +4,12 @@ import requests
 
 
 def main(argv=None) -> int:
+    """
+    Main entrypoint for the CLI.
+
+    Args:
+        argv: The arguments to parse. Expects a name to greet.
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--name", help="The name to greet and count repos for", default="world"

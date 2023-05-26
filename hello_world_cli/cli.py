@@ -1,3 +1,4 @@
+"""CLI for the hello_world_cli package."""
 import argparse
 
 import requests
@@ -5,7 +6,7 @@ import requests
 
 def main(argv=None) -> int:
     """
-    Main entrypoint for the CLI.
+    Parse name and print greeting.
 
     Args:
         argv: The arguments to parse. Expects a name to greet.

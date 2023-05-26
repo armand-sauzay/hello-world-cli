@@ -1,3 +1,4 @@
+"""CLI entrypoint."""
 from hello_world_cli.cli import main
 
 

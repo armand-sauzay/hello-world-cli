@@ -1,5 +1,6 @@
 """
-This script is used to bootstrap the project. It will:
+This script is used to bootstrap the project.
+
 1. Install poetry if not installed with pip outside of a virtualenv
 2. Install pre-commit if not installed
 3. Run poetry init to create a pyproject.toml file
@@ -26,12 +27,12 @@ LINE_LENGTH = 80
 
 
 def color_print(text, color, end="\n"):
-    """Print text in color"""
+    """Print text in color."""
     print(f"\033[{COLORS[color]}m{text}\033[0m", end=end)
 
 
 def print_progress(func):
-    """Print progress"""
+    """Print progress."""
 
     def wrapper(*args, **kwargs):
         print(f"Calling {func.__name__} with args {args} and kwargs {kwargs}")
@@ -47,7 +48,7 @@ def print_progress(func):
 
 @print_progress
 def clean_repository():
-    """Removing python_template and tests folder"""
+    """Remove python_template and tests folder."""
     subprocess.run(
         ["rm", "-rf", "tests", "python_template", "python-template"],
         stdout=subprocess.DEVNULL,
@@ -56,7 +57,7 @@ def clean_repository():
 
 @print_progress
 def check_install(tool, installation_method):
-    """Checking if tool is installed with installation_method"""
+    """Check if tool is installed with installation_method."""
     if installation_method not in ["pip", "brew"]:
         raise ValueError("Installation method not supported")
     try:
@@ -73,7 +74,7 @@ def check_install(tool, installation_method):
 
 @print_progress
 def get_git_root_folder_name():
-    """Getting the name of the git root folder"""
+    """Get the name of the git root folder."""
     try:
         git_root = (
             subprocess.check_output(["git", "rev-parse", "--show-toplevel"])
@@ -89,7 +90,7 @@ def get_git_root_folder_name():
 
 @print_progress
 def create_new_poetry_project():
-    """Initialize a poetry project and add pytest"""
+    """Initialize a poetry project and add pytest."""
     git_root_folder_name = get_git_root_folder_name()
 
     if git_root_folder_name:
@@ -114,7 +115,7 @@ def create_new_poetry_project():
 
 
 def main():
-    """Main function"""
+    """Run all the steps."""
     clean_repository()
     check_install("poetry", "pip")
     check_install("pre-commit", "brew")

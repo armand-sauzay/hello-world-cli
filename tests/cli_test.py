@@ -1,4 +1,4 @@
-"""CLI entrypoint."""
+"""Test the command line interface."""
 from hello_world_cli.cli import main
 
 

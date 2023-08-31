@@ -4,7 +4,7 @@ import argparse
 import requests
 
 
-def main(argv=None) -> int:
+def main(argv: list[str] | None = None) -> int:
     """
     Parse name and print greeting.
 
@@ -26,8 +26,8 @@ def main(argv=None) -> int:
     if repos.status_code != 200:
         print(f"Failed to fetch repos for {args.name}")
         return 1
-    repos = repos.json()
-    print(f"You have {len(repos)} repos.")  # type: ignore
+    repos_json = repos.json()
+    print(f"You have {len(repos_json)} repos on GitHub")
     return 0
 
 

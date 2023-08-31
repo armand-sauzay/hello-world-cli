@@ -1,8 +1,10 @@
 """Test the command line interface."""
+import pytest
+
 from hello_world_cli.cli import main
 
 
-def test_main(capsys):
+def test_main(capsys: "pytest.CaptureFixture[str]") -> None:
     """
     Test the main function with a valid name.
 
@@ -17,7 +19,7 @@ def test_main(capsys):
     assert err == ""
 
 
-def test_main_empty_name(capsys):
+def test_main_empty_name(capsys: "pytest.CaptureFixture[str]") -> None:
     """
     Test the main function with an empty name.
 
